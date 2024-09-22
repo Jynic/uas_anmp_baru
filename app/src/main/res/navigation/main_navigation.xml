@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.ivano.uas_anmp_baru.view.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/actionDetailHome"
+            app:destination="@id/detailHomeFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailHomeFragment2"
+        android:name="com.ivano.uas_anmp_baru.view.DetailHomeFragment"
+        android:label="fragment_detail_home"
+        tools:layout="@layout/fragment_detail_home" />
+</navigation>
