@@ -14,7 +14,7 @@ android {
 
     defaultConfig {
         applicationId = "com.ivano.uas_anmp_baru"
-        minSdk = 34
+        minSdk = 30
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -41,7 +41,8 @@ android {
 }
 
 dependencies {
-
+    implementation(libs.volley)
+    implementation(libs.gson)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -53,4 +54,5 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.swiperefreshlayout)
+    implementation(libs.picasso)
 }
