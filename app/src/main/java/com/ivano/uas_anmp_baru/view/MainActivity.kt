@@ -11,7 +11,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.ivano.uas_anmp_baru.R
 import com.ivano.uas_anmp_baru.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {private lateinit var navController: NavController
+class MainActivity : AppCompatActivity() {
+    private lateinit var navController: NavController
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

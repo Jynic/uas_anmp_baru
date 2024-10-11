@@ -15,9 +15,13 @@
     </fragment>
     <fragment
         android:id="@+id/detailHomeFragment2"
-        android:name="com.ivano.uas_anmp_baru.view.DetailHomeFragment"
+        android:name="com.ivano.uas_anmp_baru.view.AchievementsFragment"
         android:label="fragment_detail_home"
-        tools:layout="@layout/fragment_detail_home" />
+        tools:layout="@layout/fragment_achievements" >
+        <argument
+            android:name="game_id"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/itemSchedule"
         android:name="com.ivano.uas_anmp_baru.view.SchduleFragment"

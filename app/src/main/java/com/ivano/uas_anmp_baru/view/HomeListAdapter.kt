@@ -41,7 +41,7 @@ class HomeListAdapter(val gameList:ArrayList<Game>):
         Picasso.get().load(url).into(holder.binding.myImageView)
 
         holder.binding.btnAchievement.setOnClickListener {
-            val action = HomeFragmentDirections.actionDetailHome()
+            val action = HomeFragmentDirections.actionDetailHome(gameList[position].id)
             Navigation.findNavController(it).navigate(action)
         }
     }
