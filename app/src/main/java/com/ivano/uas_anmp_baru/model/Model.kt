@@ -15,3 +15,18 @@ data class Achievement(
     var team_id: Int?,
     var name: String?
 )
+
+data class Schedule(
+    var id:Int,
+    var tgl: String,
+    var event: String,
+    var waktu_mulai: String,
+    var waktu_selesai: String,
+    var description: String,
+    var lokasi: String,
+    var teams_id: Int?,
+    var games_id: Int?,
+    var teams_name: String,
+    var games_name: String,
+    var image_url: String
+)

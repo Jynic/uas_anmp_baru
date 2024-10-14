@@ -55,4 +55,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.swiperefreshlayout)
     implementation(libs.picasso)
+    implementation (libs.rxjava.core)
+    implementation (libs.rxandroid)
+
 }
