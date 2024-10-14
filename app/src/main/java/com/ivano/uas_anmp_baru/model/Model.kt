@@ -8,7 +8,7 @@ data class Game(
 )
 
 data class Achievement(
-    var id:Int?,
+    var id:Int,
     var game_id:Int,
     var year: String?,
     var achievement: String?,
