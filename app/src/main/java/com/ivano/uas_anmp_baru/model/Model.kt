@@ -40,6 +40,6 @@ data class Team(
 
 data class Member(
     var name:String,
-    var avatar:String,
-    var role:String
+    var role:String,
+    var avatar:String
 )

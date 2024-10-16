@@ -19,76 +19,79 @@ class TeamViewModel(application: Application): AndroidViewModel(application) {
 
     fun fetchTeams() {
         // Valorant Teams
-        teamsLD.value = arrayListOf(Team(1, "Phoenix",  1, listOf(
-            Member("BlazeX", "Duelist", "A fiery character with red and orange armor, wielding dual pistols."),
-            Member("Ghost", "Initiator", "A shadowy figure with a dark cloak, carrying a high-tech bow."),
-            Member("Vanguard", "Controller", "A tactical soldier in black and green, equipped with smoke grenades."),
-            Member("Siren", "Sentinel", "A tech specialist in sleek blue armor, holding a surveillance drone."),
-            Member("Ember", "Duelist", "A character with fiery red hair and a glowing energy blade.")
-        )),
+        teamsLD.value = arrayListOf(
+            Team(1, "Phoenix", 1, listOf(
+                Member("BlazeX", "Duelist", "https://avatar.iran.liara.run/public/1"),
+                Member("Ghost", "Initiator", "https://avatar.iran.liara.run/public/7"),
+                Member("Vanguard", "Controller", "https://avatar.iran.liara.run/public/5"),
+                Member("Siren", "Sentinel", "https://avatar.iran.liara.run/public/2"),
+                Member("Ember", "Duelist", "https://avatar.iran.liara.run/public/9")
+            )),
             Team(2, "Thunderstrike", 1, listOf(
-                Member("Static", "Duelist", "A character with electric-themed armor, wielding a charged blade."),
-                Member("Pulse", "Initiator", "A tech-focused agent with EMP grenades."),
-                Member("Smoke", "Controller", "A masked figure, releasing smokescreens."),
-                Member("Shield", "Sentinel", "A bulky agent with a deployable barrier."),
-                Member("Flash", "Duelist", "A speedster character with flashbangs.")
+                Member("Static", "Duelist", "https://avatar.iran.liara.run/public/4"),
+                Member("Pulse", "Initiator", "https://avatar.iran.liara.run/public/6"),
+                Member("Smoke", "Controller", "https://avatar.iran.liara.run/public/8"),
+                Member("Shield", "Sentinel", "https://avatar.iran.liara.run/public/10"),
+                Member("Flash", "Duelist", "https://avatar.iran.liara.run/public/3")
             )),
             Team(3, "Hydra", 2, listOf(
-                Member("Thunderstrike", "Fighter", "A powerful brawler with electrified gauntlets."),
-                Member("Whisper", "Assassin", "A ninja-like character with dual blades and a dark hood."),
-                Member("Stormcaller", "Mage", "A sorcerer with a staff that crackles with lightning."),
-                Member("Shieldmaiden", "Tank", "A stalwart knight with a large, glowing shield."),
-                Member("Lifebloom", "Support", "A nature-themed healer with green robes and a staff of vines.")
+                Member("Thunderstrike", "Fighter", "https://avatar.iran.liara.run/public/11"),
+                Member("Whisper", "Assassin", "https://avatar.iran.liara.run/public/12"),
+                Member("Stormcaller", "Mage", "https://avatar.iran.liara.run/public/13"),
+                Member("Shieldmaiden", "Tank", "https://avatar.iran.liara.run/public/14"),
+                Member("Lifebloom", "Support", "https://avatar.iran.liara.run/public/15")
             )),
             Team(4, "Inferno", 2, listOf(
-                Member("Blazeheart", "Marksman", "A character with a crossbow that shoots fire-tipped arrows."),
-                Member("Nightshade", "Assassin", "A stealthy character with shadowy blades."),
-                Member("Frostwing", "Mage", "A mage with ice-themed abilities, wearing a frosty cloak."),
-                Member("Stonewall", "Tank", "A massive warrior with rock-themed armor."),
-                Member("Serenity", "Support", "A calm healer with water-based healing powers.")
+                Member("Blazeheart", "Marksman", "https://avatar.iran.liara.run/public/16"),
+                Member("Nightshade", "Assassin", "https://avatar.iran.liara.run/public/17"),
+                Member("Frostwing", "Mage", "https://avatar.iran.liara.run/public/18"),
+                Member("Stonewall", "Tank", "https://avatar.iran.liara.run/public/19"),
+                Member("Serenity", "Support", "https://avatar.iran.liara.run/public/20")
             )),
             Team(5, "Eclipse", 3, listOf(
-                Member("Solara", "Mid Lane", "A mystical mage with glowing golden runes and a staff."),
-                Member("Ironclad", "Top Lane", "A heavily armored warrior with a massive shield."),
-                Member("Swiftwind", "ADC", "An archer with a sleek hood and green energy bow."),
-                Member("Moonshade", "Support", "A healer with silver hair, a crescent staff, and flowing robes."),
-                Member("Stonefist", "Jungle", "A rugged fighter with gauntlets and earth-based powers.")
+                Member("Solara", "Mid Lane", "https://avatar.iran.liara.run/public/21"),
+                Member("Ironclad", "Top Lane", "https://avatar.iran.liara.run/public/22"),
+                Member("Swiftwind", "ADC", "https://avatar.iran.liara.run/public/23"),
+                Member("Moonshade", "Support", "https://avatar.iran.liara.run/public/24"),
+                Member("Stonefist", "Jungle", "https://avatar.iran.liara.run/public/25")
             )),
             Team(6, "Dragonscale", 3, listOf(
-                Member("Emberdrake", "Mid Lane", "A mage with dragon-themed fire powers."),
-                Member("Granite", "Top Lane", "A stone-skinned warrior with a giant mace."),
-                Member("Hawkstrike", "ADC", "A precise archer with hawk-like vision."),
-                Member("Luna", "Support", "A character with moon-based healing abilities."),
-                Member("Viper", "Jungle", "A sneaky assassin with poison-themed attacks.")
+                Member("Emberdrake", "Mid Lane", "https://avatar.iran.liara.run/public/26"),
+                Member("Granite", "Top Lane", "https://avatar.iran.liara.run/public/27"),
+                Member("Hawkstrike", "ADC", "https://avatar.iran.liara.run/public/28"),
+                Member("Luna", "Support", "https://avatar.iran.liara.run/public/29"),
+                Member("Viper", "Jungle", "https://avatar.iran.liara.run/public/30")
             )),
             Team(7, "Vortex", 4, listOf(
-                Member("Havoc", "Scout", "A sleek, camo-wearing figure with high-tech binoculars and a sniper rifle."),
-                Member("Reaper", "Assault", "A masked character in all black, carrying an assault rifle."),
-                Member("Gadgeteer", "Builder", "A tech-savvy engineer with a tool belt and construction equipment."),
-                Member("Stealth", "Sniper", "A camouflaged sniper with a ghillie suit."),
-                Member("Blitz", "Close Quarters Specialist", "A fast-moving character with a shotgun and a tactical helmet.")
+                Member("Havoc", "Scout", "https://avatar.iran.liara.run/public/31"),
+                Member("Reaper", "Assault", "https://avatar.iran.liara.run/public/32"),
+                Member("Gadgeteer", "Builder", "https://avatar.iran.liara.run/public/33"),
+                Member("Stealth", "Sniper", "https://avatar.iran.liara.run/public/34"),
+                Member("Blitz", "Close Quarters Specialist", "https://avatar.iran.liara.run/public/35")
             )),
             Team(8, "Tempest", 4, listOf(
-                Member("Cyclone", "Scout", "A character with wind-themed gear and a drone."),
-                Member("Onyx", "Assault", "A sleek black-armored fighter with a heavy rifle."),
-                Member("Builder Bob", "Builder", "A character with a construction helmet and blueprints."),
-                Member("Ghost", "Sniper", "A stealthy character in a white cloak."),
-                Member("Thunder", "Close Quarters Specialist", "A fighter with electrified gloves and a shotgun.")
+                Member("Cyclone", "Scout", "https://avatar.iran.liara.run/public/36"),
+                Member("Onyx", "Assault", "https://avatar.iran.liara.run/public/37"),
+                Member("Builder Bob", "Builder", "https://avatar.iran.liara.run/public/38"),
+                Member("Ghost", "Sniper", "https://avatar.iran.liara.run/public/39"),
+                Member("Thunder", "Close Quarters Specialist", "https://avatar.iran.liara.run/public/40")
             )),
             Team(9, "Seraph", 5, listOf(
-                Member("Lightbringer", "Support", "A radiant character with angelic wings and a glowing staff."),
-                Member("Ironforge", "Offlane", "A dwarf-like character with a massive hammer and armor."),
-                Member("Shadowblade", "Mid", "A stealthy rogue with dark robes and a cursed blade."),
-                Member("Titan", "Carry", "A colossal warrior wielding a flaming sword."),
-                Member("Windcaller", "Roamer", "A nimble character with a bow and wind-themed abilities.")
+                Member("Lightbringer", "Support", "https://avatar.iran.liara.run/public/41"),
+                Member("Ironforge", "Offlane", "https://avatar.iran.liara.run/public/42"),
+                Member("Shadowblade", "Mid", "https://avatar.iran.liara.run/public/43"),
+                Member("Titan", "Carry", "https://avatar.iran.liara.run/public/44"),
+                Member("Windcaller", "Roamer", "https://avatar.iran.liara.run/public/45")
             )),
             Team(10, "Leviathan", 5, listOf(
-                Member("Kraken", "Offlane", "A sea monster-themed warrior with a trident."),
-                Member("Wraith", "Mid", "A ghostly mage with shadow powers."),
-                Member("Maelstrom", "Carry", "A storm-themed character with a spear."),
-                Member("Guardian", "Support", "A protector with a giant shield and healing aura."),
-                Member("Tracker", "Roamer", "A scout with a crossbow and animal companion.")
-            )))
+                Member("Kraken", "Offlane", "https://avatar.iran.liara.run/public/46"),
+                Member("Wraith", "Mid", "https://avatar.iran.liara.run/public/47"),
+                Member("Maelstrom", "Carry", "https://avatar.iran.liara.run/public/48"),
+                Member("Guardian", "Support", "https://avatar.iran.liara.run/public/49"),
+                Member("Tracker", "Roamer", "https://avatar.iran.liara.run/public/50")
+            ))
+        )
+
     }
 
     fun getTeamById(gameId: Int) {
@@ -104,4 +107,27 @@ class TeamViewModel(application: Application): AndroidViewModel(application) {
             teamsData.value = matchingTeams
         }
     }
+
+    fun getMembersByTeamId(teamId: Int) {
+        val teamsList = teamsLD.value
+        if (teamsList != null) {
+            for (team in teamsList) {
+                if (team.id == teamId) {
+                    Log.d("members", team.members.toString())
+                    membersLD.value = ArrayList(team.members)
+                }
+            }
+
+            val matchingTeams = arrayListOf<Team>()
+            for (team in teamsList) {
+                if (team.id == teamId) {
+                    Log.d("team", team.toString())
+                    matchingTeams.add(team)
+                }
+            }
+            teamsData.value = matchingTeams
+        }
+    }
+
+
 }

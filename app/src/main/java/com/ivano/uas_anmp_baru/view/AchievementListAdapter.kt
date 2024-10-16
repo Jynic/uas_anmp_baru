@@ -20,7 +20,6 @@ class AchievementListAdapter(val achievementList: ArrayList<Achievement>): Recyc
             parent,
             false
         )
-
         return AchievementListViewHolder(binding)
     }
 

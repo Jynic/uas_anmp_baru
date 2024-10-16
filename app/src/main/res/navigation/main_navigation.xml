@@ -93,5 +93,19 @@
         <argument
             android:name="gameId"
             app:argType="integer" />
+        <action
+            android:id="@+id/actionTeamDetail"
+            app:destination="@id/teamDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/teamDetailFragment"
+        android:name="com.ivano.uas_anmp_baru.view.TeamDetailFragment"
+        android:label="fragment_team_detail"
+        tools:layout="@layout/fragment_team_detail" >
+        <argument
+            android:name="teamId"
+            app:argType="integer" />
+        <argument android:name="gameId"
+            app:argType="integer" />
     </fragment>
 </navigation>
