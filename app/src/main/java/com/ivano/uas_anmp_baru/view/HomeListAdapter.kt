@@ -44,6 +44,12 @@ class HomeListAdapter(val gameList:ArrayList<Game>):
             val action = HomeFragmentDirections.actionDetailHome(gameList[position].id)
             Navigation.findNavController(it).navigate(action)
         }
+
+        holder.binding.btnTeams.setOnClickListener {
+            val action = HomeFragmentDirections.actionTeams(gameList[position].id.toInt())
+            Navigation.findNavController(it).navigate(action)
+
+        }
     }
     fun updateGameList(newGameList: ArrayList<Game>) {
         gameList.clear()

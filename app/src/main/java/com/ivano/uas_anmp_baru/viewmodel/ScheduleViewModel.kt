@@ -25,7 +25,7 @@ class ScheduleViewModel(aplication:Application):AndroidViewModel(aplication) {
     fun fetchSchedule(){
 
         queue = Volley.newRequestQueue(getApplication())
-        val url = "http://192.168.18.61/file_php/get_schedule.php" //IP DIGANTI SESUAI DENGAN IP JARINGAN YANG SEDANG DIGUNAKAN
+        val url = "http://192.168.53.43/file_php/get_schedule.php" //IP DIGANTI SESUAI DENGAN IP JARINGAN YANG SEDANG DIGUNAKAN
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,

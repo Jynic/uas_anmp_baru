@@ -8,7 +8,7 @@ data class Game(
 )
 
 data class Achievement(
-    var id:Int?,
+    var id:Int,
     var game_id:Int,
     var year: String?,
     var achievement: String?,
@@ -29,4 +29,17 @@ data class Schedule(
     var teams_name: String,
     var games_name: String,
     var image_url: String
+)
+
+data class Team(
+    var id:Int,
+    var name: String,
+    var games_id: Int?,
+    val members: List<Member>
+)
+
+data class Member(
+    var name:String,
+    var avatar:String,
+    var role:String
 )

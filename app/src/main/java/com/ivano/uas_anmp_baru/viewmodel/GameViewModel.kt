@@ -26,7 +26,7 @@ class GameViewModel(application: Application): AndroidViewModel(application) {
     fun fetchGames(){
 
         queue = Volley.newRequestQueue(getApplication())
-        val url = "http://192.168.18.61/file_php/get_games.php" //IP DIGANTI SESUAI DENGAN IP JARINGAN YANG SEDANG DIGUNAKAN
+        val url = "http://192.168.53.43/uts_anmp/get_games.php" //IP DIGANTI SESUAI DENGAN IP JARINGAN YANG SEDANG DIGUNAKAN
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
