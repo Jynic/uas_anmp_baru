@@ -1,24 +1,77 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="0dp"
     tools:context=".view.AboutFragment">
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/constrain">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtHistory"
-            app:layout_constraintTop_toTopOf="@id/constrain"
-            app:layout_constraintLeft_toLeftOf="@id/constrain"
-            app:layout_constraintRight_toRightOf="@id/constrain"
-            app:layout_constraintBottom_toBottomOf="@id/constrain"
-            android:text="About"
-            android:textSize="35sp"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
+    <!-- Placeholder for Image -->
+    <ImageView
+        android:id="@+id/image_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@drawable/logoesport"
+        android:contentDescription="Placeholder image"
+        android:scaleType="centerCrop" />
+
+    <!-- Who We Are Title -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Who We Are"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_margin="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="8dp" />
+
+    <!-- Description Text -->
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Titan Strike is a professional e-sports team renowned for its expertise in competitive gaming, particularly in titles like Valorant and League of Legends. The team's core values include teamwork, strategic excellence, and relentless pursuit of victory. With a strong record in regional and international tournaments, Titan Strike continues to innovate and grow. The team is known for pushing the boundaries in e-sports through skill, dedication, and a commitment to maintaining a dominant presence in the gaming world."
+        android:textSize="14sp"
+        android:layout_margin="16dp"
+        android:paddingBottom="16dp" />
+
+    <!-- Like Button and Like Count -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/consButton">
+
+            <!-- Like Count -->
+            <TextView
+                android:id="@+id/like_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:paddingEnd="8dp"
+                android:text="0"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/consButton"
+                app:layout_constraintEnd_toStartOf="@+id/like_button"
+                app:layout_constraintTop_toTopOf="@id/consButton" />
+
+            <!-- Like Button -->
+            <Button
+                android:id="@+id/like_button"
+                android:layout_width="wrap_content"
+                android:layout_margin="16dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="@id/consButton"
+                app:layout_constraintTop_toTopOf="@id/consButton"
+                app:layout_constraintBottom_toBottomOf="@id/consButton"
+                android:text="Like" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
 import com.ivano.uas_anmp_baru.R
 import com.ivano.uas_anmp_baru.databinding.FragmentAboutBinding
 import com.ivano.uas_anmp_baru.databinding.FragmentHomeBinding
@@ -28,6 +30,20 @@ private lateinit var binding: FragmentAboutBinding
         // Inflate the layout for this fragment
         binding = FragmentAboutBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val likeButton: Button = binding.likeButton
+        val likeCountText: TextView = binding.likeCount
+
+        var likeCount = 0 // Initial like count
+
+        likeButton.setOnClickListener {
+            likeCount++
+            likeCountText.text = likeCount.toString()
+        }
+
     }
 
 }

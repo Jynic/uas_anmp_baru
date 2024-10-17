@@ -70,8 +70,14 @@ class ScheduleDetailFragment : Fragment() {
         // Meminta izin notifikasi saat fragment dibuka
         requestNotificationPermission()
 
-        binding.btnTeams.setOnClickListener {
+        binding.btnNotif.setOnClickListener {
             createNotification("Notification created.")
+
+            AlertDialog.Builder(requireContext())
+                .setTitle("Notification")
+                .setMessage("Notification Created.")
+                .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
+                .show()
         }
     }
 
