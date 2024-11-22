@@ -48,7 +48,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/consButton">
-
+            <Button
+                android:id="@+id/regis"
+                android:layout_width="wrap_content"
+                android:layout_margin="16dp"
+                android:layout_marginEnd="20dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toLeftOf="@id/like_count"
+                app:layout_constraintTop_toTopOf="@id/consButton"
+                app:layout_constraintBottom_toBottomOf="@id/consButton"
+                android:text="Registration" />
             <!-- Like Count -->
             <TextView
                 android:id="@+id/like_count"

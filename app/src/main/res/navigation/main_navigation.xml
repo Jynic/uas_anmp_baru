@@ -38,7 +38,11 @@
         android:id="@+id/itemAbout"
         android:name="com.ivano.uas_anmp_baru.view.AboutFragment"
         android:label="AboutFragment"
-        tools:layout="@layout/fragment_about" />
+        tools:layout="@layout/fragment_about" >
+        <action
+            android:id="@+id/actionRegistration"
+            app:destination="@id/registrationUser" />
+    </fragment>
     <fragment
         android:id="@+id/scheduleDetailFragment"
         android:name="com.ivano.uas_anmp_baru.view.ScheduleDetailFragment"
@@ -84,6 +88,9 @@
             android:name="image_url"
             app:argType="string"
             android:defaultValue="val.jpg" />
+        <action
+            android:id="@+id/actionRegisSchedule"
+            app:destination="@id/registrationFragment" />
     </fragment>
     <fragment
         android:id="@+id/teamsFragment"
@@ -108,4 +115,19 @@
         <argument android:name="gameId"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.ivano.uas_anmp_baru.view.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration" >
+        <argument
+            android:name="nama"
+            app:argType="string"
+            android:defaultValue="exp" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrationUser"
+        android:name="com.ivano.uas_anmp_baru.view.RegistrationUser"
+        android:label="fragment_registration_user"
+        tools:layout="@layout/fragment_registration_user" />
 </navigation>

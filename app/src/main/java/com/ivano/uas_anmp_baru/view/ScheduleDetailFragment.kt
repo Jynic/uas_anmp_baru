@@ -14,6 +14,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import com.ivano.uas_anmp_baru.R
 import com.ivano.uas_anmp_baru.databinding.FragmentScheduleDetailBinding
 import com.ivano.uas_anmp_baru.viewmodel.ScheduleViewModel
@@ -78,6 +80,10 @@ class ScheduleDetailFragment : Fragment() {
                 .setMessage("Notification Created.")
                 .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
                 .show()
+        }
+        binding.btnRegis.setOnClickListener{
+            val action = ScheduleDetailFragmentDirections.actionRegisSchedule("halo")
+            Navigation.findNavController(it).navigate(action)
         }
     }
 

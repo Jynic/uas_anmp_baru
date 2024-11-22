@@ -17,6 +17,12 @@ navigationUiKtx = "2.8.1"
 volley = "1.2.1"
 rxjava = "3.1.6"
 rxandroid = "3.0.2"
+navigationFragmentKTX = "2.5.3"
+navigationUIKTX = "2.5.3"
+roomRuntime = "2.5.1"
+roomKTX = "2.5.1"
+roomCompiler = "2.5.1"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -35,6 +41,12 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 volley = { module = "com.android.volley:volley", version.ref = "volley" }
 rxjava-core = { group = "io.reactivex.rxjava3", name = "rxjava", version.ref = "rxjava" }
 rxandroid = { group = "io.reactivex.rxjava3", name = "rxandroid", version.ref = "rxandroid" }
+navigation-fragment-ktx = { group ="androidx.navigation", name="navigation-fragment-ktx", version.ref="navigationFragmentKTX"}
+navigation-ui-ktx = { group ="androidx.navigation", name="navigation-ui-ktx", version.ref="navigationUIKTX" }
+room-runtime = { group="androidx.room", name="room-runtime", version.ref="roomRuntime" }
+room-ktx = { group="androidx.room", name="room-ktx", version.ref="roomKTX" }
+room-compiler = { group = "androidx.room", name="room-compiler", version.ref = "roomCompiler" }
+
 
 
 [plugins]

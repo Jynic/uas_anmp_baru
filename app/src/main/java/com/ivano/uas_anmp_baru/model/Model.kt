@@ -1,5 +1,9 @@
 package com.ivano.uas_anmp_baru.model
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 data class Game(
     var id:String,
     var name:String?,
@@ -42,4 +46,20 @@ data class Member(
     var name:String,
     var role:String,
     var avatar:String
+)
+
+@Entity
+data class User(
+    @PrimaryKey
+    @ColumnInfo(name = "username") // Primary key
+    var username: String,
+
+    @ColumnInfo(name = "firstName")
+    var firstName: String,
+
+    @ColumnInfo(name = "lastName")
+    var lastName: String,
+
+    @ColumnInfo(name = "password")
+    var password: String
 )
