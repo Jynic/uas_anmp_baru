@@ -82,8 +82,8 @@ class ScheduleDetailFragment : Fragment() {
                 .show()
         }
         binding.btnRegis.setOnClickListener{
-            val action = ScheduleDetailFragmentDirections.actionRegisSchedule("halo")
-            Navigation.findNavController(it).navigate(action)
+//            val action = ScheduleDetailFragmentDirections.actionRegisSchedule("halo")
+//            Navigation.findNavController(it).navigate(action)
         }
     }
 

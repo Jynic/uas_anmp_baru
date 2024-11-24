@@ -44,8 +44,7 @@ class RegistrationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         arguments?.let {
-            val args = RegistrationFragmentArgs.fromBundle(it)
-            param1 = args.nama
+//            val args = Registr?
         }
         binding.txtEvent.setText(param1.toString())
     }

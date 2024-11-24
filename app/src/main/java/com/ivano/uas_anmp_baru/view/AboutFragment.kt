@@ -1,5 +1,6 @@
 package com.ivano.uas_anmp_baru.view
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -47,6 +48,10 @@ private lateinit var binding: FragmentAboutBinding
         }
 
         regis.setOnClickListener {
+            val userAccount = requireActivity().getSharedPreferences("loginAccount", Context.MODE_PRIVATE)
+            var editor = userAccount.edit()
+            editor.clear()
+            editor.apply()
             val action = AboutFragmentDirections.actionRegistration()
             Navigation.findNavController(it).navigate(action)
         }

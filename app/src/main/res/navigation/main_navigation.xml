@@ -41,7 +41,7 @@
         tools:layout="@layout/fragment_about" >
         <action
             android:id="@+id/actionRegistration"
-            app:destination="@id/registrationUser" />
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/scheduleDetailFragment"
@@ -90,7 +90,7 @@
             android:defaultValue="val.jpg" />
         <action
             android:id="@+id/actionRegisSchedule"
-            app:destination="@id/registrationFragment" />
+            app:destination="@id/registrationUser" />
     </fragment>
     <fragment
         android:id="@+id/teamsFragment"
@@ -116,18 +116,20 @@
             app:argType="integer" />
     </fragment>
     <fragment
-        android:id="@+id/registrationFragment"
-        android:name="com.ivano.uas_anmp_baru.view.RegistrationFragment"
-        android:label="fragment_registration"
-        tools:layout="@layout/fragment_registration" >
-        <argument
-            android:name="nama"
-            app:argType="string"
-            android:defaultValue="exp" />
-    </fragment>
-    <fragment
         android:id="@+id/registrationUser"
         android:name="com.ivano.uas_anmp_baru.view.RegistrationUser"
         android:label="fragment_registration_user"
         tools:layout="@layout/fragment_registration_user" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.ivano.uas_anmp_baru.view.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/actionRegistFragment"
+            app:destination="@id/registrationUser" />
+        <action
+            android:id="@+id/actionHomeFragment"
+            app:destination="@id/itemHome" />
+    </fragment>
 </navigation>

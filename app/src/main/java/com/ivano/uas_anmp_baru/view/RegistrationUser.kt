@@ -8,10 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import com.ivano.uas_anmp_baru.R
 import com.ivano.uas_anmp_baru.databinding.FragmentRegistrationUserBinding
 import com.ivano.uas_anmp_baru.model.User
-import com.ivano.uas_anmp_baru.viewmodel.CreateUserViewModel
+import com.ivano.uas_anmp_baru.viewmodel.UserViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,7 +24,7 @@ private const val ARG_PARAM2 = "param2"
  */
 class RegistrationUser : Fragment() {
     private lateinit var binding: FragmentRegistrationUserBinding
-    private lateinit var viewModel:CreateUserViewModel
+    private lateinit var viewModel:UserViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,7 +35,7 @@ class RegistrationUser : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(CreateUserViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
         binding.checkboxAgreement.setOnCheckedChangeListener { _, isChecked ->
             binding.registration.isEnabled = isChecked
         }

@@ -1,13 +1,18 @@
 package com.ivano.uas_anmp_baru.view
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ivano.uas_anmp_baru.R
 import com.ivano.uas_anmp_baru.databinding.FragmentHomeBinding
 import com.ivano.uas_anmp_baru.viewmodel.GameViewModel
 
@@ -28,6 +33,13 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(GameViewModel::class.java)
         viewModel.fetchGames()
+        val sharedPref = activity?.getSharedPreferences("loginAccount", Context.MODE_PRIVATE)
+        Log.d("Check login", sharedPref?.getString("username", "null").toString())
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {
+                findNavController().navigate(R.id.itemHome)
+            }
+        })
 
         binding.txtError.visibility = View.GONE
 

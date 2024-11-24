@@ -19,12 +19,16 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.ivano.uas_anmp_baru.R
 import android.Manifest
+import androidx.core.view.isInvisible
+import androidx.lifecycle.ViewModelProvider
 import com.ivano.uas_anmp_baru.databinding.ActivityMainBinding
+import com.ivano.uas_anmp_baru.viewmodel.UserViewModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
     private lateinit var binding: ActivityMainBinding
+    private lateinit var userViewModel: UserViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,9 +50,26 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmenHost) as NavHostFragment
         navController = navHostFragment.navController
 
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.loginFragment, R.id.registrationUser -> {
+                    binding.bottomNavigation.isInvisible = true
+                }
+                else->{
+                    binding.bottomNavigation.isInvisible = false
+                }
+            }
+        }
+
+        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+
         // Setup bottomNavigation dengan navController
         binding.bottomNavigation.setupWithNavController(navController)
 
+        if(!userViewModel.isUserLoggedIn()){
+            Log.d("Check login", "Berhasil cek login")
+            navController.navigate(R.id.loginFragment)
+        }
 
     }
 }
