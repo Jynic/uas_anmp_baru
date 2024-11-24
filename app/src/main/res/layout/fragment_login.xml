@@ -34,17 +34,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@mipmap/ic_logo" />
+
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="32dp"
                     android:layout_marginEnd="32dp"
                     app:cardCornerRadius="5dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toBottomOf="@id/textView">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
@@ -79,8 +89,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="#00FFFFFF"
-                                android:tag="inputUsername"
                                 android:onClick="@{inputListener::onInputClick}"
+                                android:tag="inputUsername"
                                 android:text="@{user.username}" />
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -101,8 +111,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="#00FFFFFF"
-                                android:tag="inputPassword"
                                 android:onClick="@{inputListener::onInputClick}"
+                                android:tag="inputPassword"
                                 android:text="@{user.password}" />
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -131,6 +141,19 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cardView3" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Black Box E-Sport"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
     </FrameLayout>
