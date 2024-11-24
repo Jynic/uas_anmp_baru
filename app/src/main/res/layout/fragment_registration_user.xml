@@ -1,153 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.RegistrationUser"
-    android:id="@+id/constrain">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Judul"
-        app:layout_constraintTop_toTopOf="@id/constrain"
-        app:layout_constraintLeft_toLeftOf="@id/constrain"
-        app:layout_constraintRight_toRightOf="@id/constrain"
-        app:layout_constraintBottom_toTopOf="@id/first_name_layout"
-        android:text="Registration User"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginTop="60dp"
-        android:textColor="@color/black"
-        android:background="@color/white"/>
+    <data>
+        <variable
+            name="user"
+            type="com.ivano.uas_anmp_baru.model.User" />
 
-    <com.google.android.material.textfield.TextInputLayout
+        <variable
+            name="listener"
+            type="com.ivano.uas_anmp_baru.view.ButtonClickListener" />
+
+        <variable
+            name="navListener"
+            type="com.ivano.uas_anmp_baru.view.ButtonActionNavClickListener" />
+
+        <variable
+            name="inputListener"
+            type="com.ivano.uas_anmp_baru.view.TextInputClickListener" />
+
+        <variable
+            name="viewModel"
+            type="com.ivano.uas_anmp_baru.viewmodel.UserViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
-        android:id="@+id/first_name_layout"
-        app:boxStrokeColor="@color/primary_color"
-        app:layout_constraintTop_toBottomOf="@id/Judul"
-        app:layout_constraintLeft_toLeftOf="@id/constrain"
-        app:layout_constraintRight_toRightOf="@id/constrain">
+        android:layout_height="match_parent"
+        tools:context=".view.RegistrationUser"
+        android:id="@+id/constrain">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/first_name"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Judul"
+            app:layout_constraintTop_toTopOf="@id/constrain"
+            app:layout_constraintLeft_toLeftOf="@id/constrain"
+            app:layout_constraintRight_toRightOf="@id/constrain"
+            app:layout_constraintBottom_toTopOf="@id/first_name_layout"
+            android:text="Registration User"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="60dp"
+            android:textColor="@color/black"
+            android:background="@color/white" />
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter your first name" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="30dp"
+            android:id="@+id/first_name_layout"
+            app:boxStrokeColor="@color/primary_color"
+            app:layout_constraintTop_toBottomOf="@id/Judul"
+            app:layout_constraintLeft_toLeftOf="@id/constrain"
+            app:layout_constraintRight_toRightOf="@id/constrain">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:id="@+id/last_name_layout"
-        app:boxStrokeColor="@color/primary_color"
-        app:layout_constraintTop_toBottomOf="@id/first_name_layout"
-        app:layout_constraintLeft_toLeftOf="@id/constrain"
-        app:layout_constraintRight_toRightOf="@id/constrain">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/first_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:tag="inputFirstName"
+                android:onClick="@{inputListener::onInputClick}"
+                android:text="@{user.firstName}"
+                android:hint="Enter your first name" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/last_name"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter your last name" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:id="@+id/last_name_layout"
+            app:boxStrokeColor="@color/primary_color"
+            app:layout_constraintTop_toBottomOf="@id/first_name_layout"
+            app:layout_constraintLeft_toLeftOf="@id/constrain"
+            app:layout_constraintRight_toRightOf="@id/constrain">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:id="@+id/username_layout"
-        app:boxStrokeColor="@color/primary_color"
-        app:layout_constraintTop_toBottomOf="@id/last_name_layout"
-        app:layout_constraintLeft_toLeftOf="@id/constrain"
-        app:layout_constraintRight_toRightOf="@id/constrain">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/last_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:tag="inputLastName"
+                android:onClick="@{inputListener::onInputClick}"
+                android:text="@{user.lastName}"
+                android:hint="Enter your last name" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/username"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter your username" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:id="@+id/username_layout"
+            app:boxStrokeColor="@color/primary_color"
+            app:layout_constraintTop_toBottomOf="@id/last_name_layout"
+            app:layout_constraintLeft_toLeftOf="@id/constrain"
+            app:layout_constraintRight_toRightOf="@id/constrain">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:id="@+id/password_layout"
-        app:endIconMode="password_toggle"
-        app:boxStrokeColor="@color/primary_color"
-        app:layout_constraintTop_toBottomOf="@id/username_layout"
-        app:layout_constraintLeft_toLeftOf="@id/constrain"
-        app:layout_constraintRight_toRightOf="@id/constrain">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:tag="inputUsername"
+                android:onClick="@{inputListener::onInputClick}"
+                android:text="@{user.username}"
+                android:hint="Enter your username" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/password"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:hint="Enter your password" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:id="@+id/password_layout"
+            app:endIconMode="password_toggle"
+            app:boxStrokeColor="@color/primary_color"
+            app:layout_constraintTop_toBottomOf="@id/username_layout"
+            app:layout_constraintLeft_toLeftOf="@id/constrain"
+            app:layout_constraintRight_toRightOf="@id/constrain">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:id="@+id/password_repeat_layout"
-        app:endIconMode="password_toggle"
-        app:boxStrokeColor="@color/primary_color"
-        app:layout_constraintTop_toBottomOf="@id/password_layout"
-        app:layout_constraintLeft_toLeftOf="@id/constrain"
-        app:layout_constraintRight_toRightOf="@id/constrain">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:tag="inputPassword"
+                android:onClick="@{inputListener::onInputClick}"
+                android:text="@{user.password}"
+                android:hint="Enter your password" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/password_repeat"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:hint="Repeat your password" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:id="@+id/password_repeat_layout"
+            app:endIconMode="password_toggle"
+            app:boxStrokeColor="@color/primary_color"
+            app:layout_constraintTop_toBottomOf="@id/password_layout"
+            app:layout_constraintLeft_toLeftOf="@id/constrain"
+            app:layout_constraintRight_toRightOf="@id/constrain">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password_repeat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:tag="inputRepeatPassword"
+                android:hint="Repeat your password" />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/checkbox_agreement"
-        app:layout_constraintTop_toBottomOf="@id/password_repeat_layout"
-        app:layout_constraintLeft_toLeftOf="@id/constrain"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="30dp"
-        android:text="I agree to the terms and conditions" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/back"
-        app:layout_constraintTop_toBottomOf="@id/checkbox_agreement"
-        app:layout_constraintRight_toLeftOf="@id/registration"
-        app:layout_constraintBottom_toBottomOf="@id/constrain"
-        android:layout_margin="30dp"
-        android:text="Back" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/registration"
-        app:layout_constraintTop_toBottomOf="@id/checkbox_agreement"
-        app:layout_constraintRight_toRightOf="@id/constrain"
-        app:layout_constraintBottom_toBottomOf="@id/constrain"
-        android:layout_margin="30dp"
-        android:text="Registration"
-        android:enabled="false"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkbox_agreement"
+            app:layout_constraintTop_toBottomOf="@id/password_repeat_layout"
+            app:layout_constraintLeft_toLeftOf="@id/constrain"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="30dp"
+            android:onClick="@{listener::onButtonClick}"
+            android:checked="@={viewModel.isAgreed}"
+            android:text="I agree to the terms and conditions" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/back"
+            app:layout_constraintTop_toBottomOf="@id/checkbox_agreement"
+            app:layout_constraintRight_toLeftOf="@id/registration"
+            app:layout_constraintBottom_toBottomOf="@id/constrain"
+            android:layout_margin="30dp"
+            android:onClick="@{navListener::onButtonActionNavClick}"
+            android:text="Back" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/registration"
+            app:layout_constraintTop_toBottomOf="@id/checkbox_agreement"
+            app:layout_constraintRight_toRightOf="@id/constrain"
+            app:layout_constraintBottom_toBottomOf="@id/constrain"
+            android:layout_margin="30dp"
+            android:text="Registration"
+            android:onClick="@{listener::onButtonClick}"
+            android:enabled="false" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

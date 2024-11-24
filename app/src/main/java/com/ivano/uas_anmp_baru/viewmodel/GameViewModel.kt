@@ -26,8 +26,8 @@ class GameViewModel(application: Application): AndroidViewModel(application) {
     fun fetchGames(){
 
         queue = Volley.newRequestQueue(getApplication())
-        val url = "http://192.168.1.43/uts_anmp/get_games.php" //IP DIGANTI SESUAI DENGAN IP JARINGAN YANG SEDANG DIGUNAKAN
-
+//        val url = "http://192.168.1.43/uts_anmp/get_games.php" //IP DIGANTI SESUAI DENGAN IP JARINGAN YANG SEDANG DIGUNAKAN
+        val url = "http://192.168.18.61/uts_anmp/get_games.php"
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             {
@@ -51,8 +51,8 @@ class GameViewModel(application: Application): AndroidViewModel(application) {
 
     fun fetchGamesById(game_id: String){
         queue = Volley.newRequestQueue(getApplication())
-        val url = "http://192.168.0.65/uts_anmp/get_games_by_id.php" //IP DIGANTI SESUAI DENGAN IP JARINGAN YANG SEDANG DIGUNAKAN
-
+//        val url = "http://192.168.0.65/uts_anmp/get_games_by_id.php" //IP DIGANTI SESUAI DENGAN IP JARINGAN YANG SEDANG DIGUNAKAN
+        val url = "http://192.168.18.61/uts_anmp/get_games_by_id.php"
         val stringRequest = object : StringRequest(
             Request.Method.POST, url,
             Response.Listener<String> {

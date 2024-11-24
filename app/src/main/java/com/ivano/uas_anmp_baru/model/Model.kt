@@ -63,3 +63,16 @@ data class User(
     @ColumnInfo(name = "password")
     var password: String
 )
+
+@Entity
+data class AppliedTeam(
+    @ColumnInfo(name = "game")
+    var game: String,
+    @ColumnInfo(name = "team")
+    var team: String,
+    @ColumnInfo(name = "keterangan")
+    var keterangan: String
+){
+    @PrimaryKey(autoGenerate = true)
+    var id_applied_team: Int = 0
+}

@@ -55,6 +55,10 @@ private lateinit var binding: FragmentAboutBinding
             val action = AboutFragmentDirections.actionRegistration()
             Navigation.findNavController(it).navigate(action)
         }
+        binding.ProposalTeam.setOnClickListener {
+            val action = AboutFragmentDirections.actionProposalList()
+            Navigation.findNavController(it).navigate(action)
+        }
 
     }
 

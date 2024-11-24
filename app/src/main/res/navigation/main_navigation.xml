@@ -42,6 +42,9 @@
         <action
             android:id="@+id/actionRegistration"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/actionProposalList"
+            app:destination="@id/proposalTeamFragment" />
     </fragment>
     <fragment
         android:id="@+id/scheduleDetailFragment"
@@ -132,4 +135,18 @@
             android:id="@+id/actionHomeFragment"
             app:destination="@id/itemHome" />
     </fragment>
+    <fragment
+        android:id="@+id/proposalTeamFragment"
+        android:name="com.ivano.uas_anmp_baru.view.ProposalTeamFragment"
+        android:label="fragment_proposal_team"
+        tools:layout="@layout/fragment_proposal_team" >
+        <action
+            android:id="@+id/actionApplyTeam"
+            app:destination="@id/applyTeamFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/applyTeamFragment"
+        android:name="com.ivano.uas_anmp_baru.view.ApplyTeamFragment"
+        android:label="fragment_apply_team"
+        tools:layout="@layout/fragment_apply_team" />
 </navigation>

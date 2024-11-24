@@ -5,9 +5,10 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = arrayOf(User::class), version =  1)
+@Database(entities = arrayOf(User::class, AppliedTeam::class), version =  2)
 abstract class UserDatabase: RoomDatabase() {
     abstract fun userDao(): UserDao
+    abstract fun appliedTeamDao(): AppliedTeamDao
 
     companion object {
         @Volatile
@@ -18,7 +19,8 @@ abstract class UserDatabase: RoomDatabase() {
             Room.databaseBuilder(
                 context.applicationContext,
                 UserDatabase::class.java,
-                "e-sport").build()
+                "e-sport").fallbackToDestructiveMigration() // Gunakan jika versi berubah tanpa strategi migrasi
+                .build()
         operator fun invoke(context: Context) {
             if(instance == null) {
                 synchronized(LOCK) {
