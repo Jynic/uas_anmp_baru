@@ -64,8 +64,8 @@ class LoginFragment : Fragment(), ButtonClickListener, ButtonActionNavClickListe
     }
 
     override fun onButtonClick(v: View) {
-        var username = binding.txtUsername.text.toString()
-        var password = binding.txtPassword.text.toString()
+        val username = binding.txtUsername.text.toString()
+        val password = binding.txtPassword.text.toString()
 
         if (username.isEmpty() || password.isEmpty()) {
             binding.txtUsername.error = "Username tidak boleh kosong"

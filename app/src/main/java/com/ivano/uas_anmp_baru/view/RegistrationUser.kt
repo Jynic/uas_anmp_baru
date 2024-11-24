@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.ivano.uas_anmp_baru.databinding.FragmentRegistrationUserBinding
@@ -22,7 +23,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [RegistrationUser.newInstance] factory method to
  * create an instance of this fragment.
  */
-class RegistrationUser : Fragment() {
+class RegistrationUser : Fragment(), ButtonClickListener, ButtonActionNavClickListener, TextInputClickListener {
     private lateinit var binding: FragmentRegistrationUserBinding
     private lateinit var viewModel:UserViewModel
     override fun onCreateView(
@@ -36,25 +37,68 @@ class RegistrationUser : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-        binding.checkboxAgreement.setOnCheckedChangeListener { _, isChecked ->
-            binding.registration.isEnabled = isChecked
-        }
-        binding.registration.setOnClickListener {
-            val username = binding.username.text?.toString()?.trim() ?: ""
-            val firstName = binding.firstName.text?.toString()?.trim() ?: ""
-            val lastName = binding.lastName.text?.toString()?.trim() ?: ""
-            val password = binding.password.text?.toString()?.trim() ?: ""
+//        binding.checkboxAgreement.setOnCheckedChangeListener { _, isChecked ->
+//            binding.registration.isEnabled = isChecked
+//        }
 
-            if (username.isEmpty() || firstName.isEmpty() || lastName.isEmpty() || password.isEmpty()) {
-                Toast.makeText(requireContext(), "All fields are required", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(requireContext(), username, Toast.LENGTH_SHORT).show()
-                val user = User(username, firstName, lastName, password)
-                var list = listOf(user)
+        binding.listener = this
+        binding.navListener = this
+        binding.inputListener = this
+    }
+
+    override fun onButtonClick(v: View) {
+        val fname = binding.firstName.text.toString()
+        val lname = binding.lastName.text.toString()
+        val username = binding.username.text.toString()
+        val password = binding.password.text.toString()
+        val passwordRepeat = binding.passwordRepeat.text.toString()
+
+        if (username.isEmpty() || fname.isEmpty() || lname.isEmpty() || password.isEmpty()) {
+            Toast.makeText(requireContext(), "All fields are required", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(requireContext(), username, Toast.LENGTH_SHORT).show()
+            val user = User(username, fname, lname, password)
+            var list = listOf(user)
+
+            if(password == passwordRepeat){
                 viewModel.addUser(list)
-                Toast.makeText(view.context, "Data added", Toast.LENGTH_LONG).show()
-                Navigation.findNavController(it).popBackStack()
+                Toast.makeText(requireContext(), "Data added", Toast.LENGTH_LONG).show()
+                Navigation.findNavController(v).popBackStack()
+            } else {
+                Toast.makeText(requireContext(), "Password not match", Toast.LENGTH_LONG).show()
             }
+        }
+
+        viewModel.isAgreed.observe(viewLifecycleOwner, Observer { isChecked ->
+            // Lakukan sesuatu ketika isAgreed berubah
+            binding.registration.isEnabled = true
+        })
+    }
+
+    override fun onButtonActionNavClick(v: View) {
+        Navigation.findNavController(v).popBackStack()
+    }
+
+    override fun onInputClick(v: View) {
+        if (v.tag == "inputFirstName") {
+            binding.firstNameLayout.error = null
+            binding.firstNameLayout.isEnabled = false
+        }
+        if (v.tag == "inputLastName") {
+            binding.lastNameLayout.error = null
+            binding.lastNameLayout.isEnabled = false
+        }
+        if (v.tag == "inputUsername") {
+            binding.usernameLayout.error = null
+            binding.usernameLayout.isEnabled = false
+        }
+        if (v.tag == "inputPassword") {
+            binding.passwordLayout.error = null
+            binding.passwordRepeatLayout.isEnabled = false
+        }
+        if (v.tag == "inputRepeatPassword"){
+            binding.passwordRepeatLayout.error = null
+            binding.passwordRepeatLayout.isEnabled = false
         }
     }
 

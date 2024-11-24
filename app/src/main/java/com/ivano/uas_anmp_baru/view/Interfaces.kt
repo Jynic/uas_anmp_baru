@@ -13,3 +13,7 @@ interface TextInputClickListener {
 interface ButtonActionNavClickListener {
     fun onButtonActionNavClick(v: View)
 }
+
+interface CheckBoxClickListener {
+    fun onCheckBoxClick(v: View, isChecked: Boolean)
+}
