@@ -61,6 +61,7 @@ class ProposalTeamFragment : Fragment(), TambahProposalTeam {
                 binding.txtError.setText("Your todo still empty.")
             } else {
                 binding.recView?.visibility = View.VISIBLE
+                binding.txtError.setText("")
             }
         })
         viewModel.loadingLD.observe(viewLifecycleOwner, Observer {

@@ -21,3 +21,7 @@ interface CheckBoxClickListener {
 interface TambahProposalTeam {
     fun onCreateProposal(v: View)
 }
+
+interface SpinnerListener {
+    fun onSpinnerItemSelected(item: Any)
+}

@@ -4,7 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="listener"
+            type="com.ivano.uas_anmp_baru.view.SpinnerListener" />
+        <variable
+            name="proposal"
+            type="com.ivano.uas_anmp_baru.model.AppliedTeam" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -58,6 +63,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="52dp"
             android:hint="Masukkan Alasan Bergabung"
+            android:text="@={proposal.keterangan}"
             android:gravity="top|start"
             android:minHeight="150dp"
             android:padding="16dp"

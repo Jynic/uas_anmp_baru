@@ -75,4 +75,6 @@ data class AppliedTeam(
 ){
     @PrimaryKey(autoGenerate = true)
     var id_applied_team: Int = 0
+
+    constructor() : this("", "", "")
 }
