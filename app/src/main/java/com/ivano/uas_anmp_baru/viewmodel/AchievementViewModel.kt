@@ -24,7 +24,7 @@ class AchievementViewModel(application: Application): AndroidViewModel(applicati
         queue = Volley.newRequestQueue(getApplication())
 //        val url = "http://192.168.0.186/uts_anmp/get_achievements.php" //IP DIGANTI SESUAI DENGAN IP JARINGAN YANG SEDANG DIGUNAKAN
 //        val url = "http://192.168.0.117/uts_anmp/get_achievements.php" IP KOS
-          val url = "http://192.168.0.139/uts_anmp/get_achievements.php"
+          val url = "http://192.168.18.61/uts_anmp/get_achievements.php"
         val stringRequest = object : StringRequest(
             Request.Method.POST, url,
             Response.Listener<String> {

@@ -71,10 +71,12 @@ data class AppliedTeam(
     @ColumnInfo(name = "team")
     var team: String,
     @ColumnInfo(name = "keterangan")
-    var keterangan: String
+    var keterangan: String,
+    @ColumnInfo(name = "status")
+    var status: String
 ){
     @PrimaryKey(autoGenerate = true)
     var id_applied_team: Int = 0
 
-    constructor() : this("", "", "")
+    constructor() : this("", "", "", "Waiting")
 }

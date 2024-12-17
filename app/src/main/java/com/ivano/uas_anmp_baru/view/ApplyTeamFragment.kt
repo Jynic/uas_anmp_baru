@@ -15,6 +15,8 @@ import com.ivano.uas_anmp_baru.R
 import com.ivano.uas_anmp_baru.databinding.FragmentApplyTeamBinding
 import com.ivano.uas_anmp_baru.model.AppliedTeam
 import com.ivano.uas_anmp_baru.viewmodel.ApplyTeamViewModel
+import com.ivano.uas_anmp_baru.viewmodel.GameViewModel
+import com.ivano.uas_anmp_baru.viewmodel.TeamViewModel
 
 class ApplyTeamFragment : Fragment(), SpinnerListener {
     private lateinit var binding: FragmentApplyTeamBinding
@@ -46,14 +48,23 @@ class ApplyTeamFragment : Fragment(), SpinnerListener {
         super.onViewCreated(view, savedInstanceState)
 
         // Setup Spinner Game
-        val games = listOf("Pilih Game", "Game A", "Game B", "Game C")
-        val gameAdapter = ArrayAdapter(
-            requireContext(),
-            android.R.layout.simple_spinner_item,
-            games
-        )
-        gameAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        binding.gameSpinner.adapter = gameAdapter
+        val gameViewModel = ViewModelProvider(this).get(GameViewModel::class.java)
+        val teamViewModel = ViewModelProvider(this).get(TeamViewModel::class.java)
+        gameViewModel.fetchGames()
+        teamViewModel.fetchTeams()
+        gameViewModel.gamesLD.observe(viewLifecycleOwner) { games ->
+            val gameNames = mutableListOf("Pilih Game") // Tambahkan "Pilih Game" sebagai default
+            gameNames.addAll(games.map { it.name ?: "Unknown" })
+
+            // Set adapter for spinner
+            val gameAdapter = ArrayAdapter(
+                requireContext(),
+                android.R.layout.simple_spinner_item,
+                gameNames
+            )
+            gameAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            binding.gameSpinner.adapter = gameAdapter
+        }
 
         // Initially disable the team spinner
         binding.teamSpinner.isEnabled = false
@@ -64,14 +75,22 @@ class ApplyTeamFragment : Fragment(), SpinnerListener {
                 // Enable team spinner only when a game other than the default is selected
                 if (position > 0) {
                     // Setup Spinner Team
-                    val teams = listOf("Pilih Team", "Team X", "Team Y", "Team Z")
-                    val teamAdapter = ArrayAdapter(
-                        requireContext(),
-                        android.R.layout.simple_spinner_item,
-                        teams
-                    )
-                    teamAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                    binding.teamSpinner.adapter = teamAdapter
+                    teamViewModel.teamsLD.observe(viewLifecycleOwner) { teams ->
+                        // Buat daftar nama tim dari data yang diterima
+                        val teamNames = mutableListOf("Pilih Tim") // Tambahkan opsi default
+                        teamNames.addAll(teams.map { it.name }) // Mengambil nama tim dari daftar
+
+                        // Buat ArrayAdapter untuk Spinner
+                        val teamAdapter = ArrayAdapter(
+                            requireContext(),
+                            android.R.layout.simple_spinner_item,
+                            teamNames
+                        )
+                        teamAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+                        // Set adapter ke Spinner
+                        binding.teamSpinner.adapter = teamAdapter
+                    }
                     binding.teamSpinner.isEnabled = true
                 } else {
                     // Disable team spinner and reset if no game is selected
@@ -89,12 +108,14 @@ class ApplyTeamFragment : Fragment(), SpinnerListener {
             val selectedGame = binding.gameSpinner.selectedItem.toString()
             val selectedTeam = binding.teamSpinner.selectedItem.toString()
             val alasanBergabung = binding.alasanBergabung.text.toString()
+            val status = "Waiting";
 
             if (selectedGame != "Pilih Game" && selectedTeam != "Pilih Team" && alasanBergabung.isNotBlank()) {
                 val team = AppliedTeam(
                     game = selectedGame,
                     team = selectedTeam,
-                    keterangan = alasanBergabung
+                    keterangan = alasanBergabung,
+                    status = status
                 )
                 viewModel.addTeam(listOf(team))
                 Toast.makeText(view.context, "Data berhasil ditambahkan", Toast.LENGTH_LONG).show()
