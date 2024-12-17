@@ -25,3 +25,7 @@ interface TambahProposalTeam {
 interface SpinnerListener {
     fun onSpinnerItemSelected(item: Any)
 }
+
+interface AgreementListener {
+    fun onAgreementClick(v: View)
+}

@@ -13,6 +13,10 @@
             type="com.ivano.uas_anmp_baru.view.ButtonClickListener" />
 
         <variable
+            name="listenerAdd"
+            type="com.ivano.uas_anmp_baru.view.AgreementListener" />
+
+        <variable
             name="navListener"
             type="com.ivano.uas_anmp_baru.view.ButtonActionNavClickListener" />
 

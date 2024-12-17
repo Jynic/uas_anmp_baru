@@ -37,10 +37,6 @@ class RegistrationUser : Fragment(), ButtonClickListener, ButtonActionNavClickLi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-//        binding.checkboxAgreement.setOnCheckedChangeListener { _, isChecked ->
-//            binding.registration.isEnabled = isChecked
-//        }
-
         binding.listener = this
         binding.navListener = this
         binding.inputListener = this
@@ -55,12 +51,11 @@ class RegistrationUser : Fragment(), ButtonClickListener, ButtonActionNavClickLi
 
         if (username.isEmpty() || fname.isEmpty() || lname.isEmpty() || password.isEmpty()) {
             Toast.makeText(requireContext(), "All fields are required", Toast.LENGTH_SHORT).show()
-        } else {
-            Toast.makeText(requireContext(), username, Toast.LENGTH_SHORT).show()
-            val user = User(username, fname, lname, password)
-            var list = listOf(user)
-
+        }else{
             if(password == passwordRepeat){
+                Toast.makeText(requireContext(), username, Toast.LENGTH_SHORT).show()
+                val user = User(username, fname, lname, password)
+                var list = listOf(user)
                 viewModel.addUser(list)
                 Toast.makeText(requireContext(), "Data added", Toast.LENGTH_LONG).show()
                 Navigation.findNavController(v).popBackStack()
@@ -68,9 +63,7 @@ class RegistrationUser : Fragment(), ButtonClickListener, ButtonActionNavClickLi
                 Toast.makeText(requireContext(), "Password not match", Toast.LENGTH_LONG).show()
             }
         }
-
         viewModel.isAgreed.observe(viewLifecycleOwner, Observer { isChecked ->
-            // Lakukan sesuatu ketika isAgreed berubah
             binding.registration.isEnabled = true
         })
     }

@@ -15,7 +15,7 @@ import kotlin.coroutines.CoroutineContext
 class UserViewModel(application: Application):AndroidViewModel(application), CoroutineScope {
     private val job = Job()
     var userLoginLD = MutableLiveData<User>()
-    val isAgreed = MutableLiveData<Boolean>(false)
+    val isAgreed = MutableLiveData<Boolean>(true)
 
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.IO

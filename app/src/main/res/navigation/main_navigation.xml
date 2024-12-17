@@ -15,6 +15,12 @@
         <action
             android:id="@+id/actionTeams"
             app:destination="@id/teamsFragment" />
+        <action
+            android:id="@+id/actionApplyTeam"
+            app:destination="@id/proposalTeamFragment" />
+        <action
+            android:id="@+id/actionSignOut"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailHomeFragment2"
