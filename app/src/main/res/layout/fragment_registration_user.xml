@@ -171,7 +171,6 @@
             app:layout_constraintLeft_toLeftOf="@id/constrain"
             android:layout_marginTop="10dp"
             android:layout_marginStart="30dp"
-            android:onClick="@{listener::onButtonClick}"
             android:checked="@={viewModel.isAgreed}"
             android:text="I agree to the terms and conditions" />
 

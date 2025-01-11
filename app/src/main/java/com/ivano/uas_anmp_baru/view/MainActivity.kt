@@ -71,7 +71,16 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-
+        navController.addOnDestinationChangedListener{_, destination, _ ->
+            when (destination.id) {
+                R.id.loginFragment, R.id.registrationUser -> {
+                    binding.fabOpenDrawer.isInvisible = true
+                }
+                else->{
+                    binding.fabOpenDrawer.isInvisible = false
+                }
+            }
+    }
 
         // Handle insets
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->

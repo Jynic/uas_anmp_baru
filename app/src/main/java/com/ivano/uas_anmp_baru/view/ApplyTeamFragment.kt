@@ -1,6 +1,7 @@
 package com.ivano.uas_anmp_baru.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -73,12 +74,16 @@ class ApplyTeamFragment : Fragment(), SpinnerListener {
         binding.gameSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 // Enable team spinner only when a game other than the default is selected
+//                Log.d("cek id game", id.toString());
+                teamViewModel.getTeamById(id.toInt())
                 if (position > 0) {
                     // Setup Spinner Team
-                    teamViewModel.teamsLD.observe(viewLifecycleOwner) { teams ->
+                    teamViewModel.teamsData.observe(viewLifecycleOwner) { teams ->
                         // Buat daftar nama tim dari data yang diterima
                         val teamNames = mutableListOf("Pilih Tim") // Tambahkan opsi default
                         teamNames.addAll(teams.map { it.name }) // Mengambil nama tim dari daftar
+
+                        Log.d("tim", teamNames.toString());
 
                         // Buat ArrayAdapter untuk Spinner
                         val teamAdapter = ArrayAdapter(

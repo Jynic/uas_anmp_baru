@@ -106,6 +106,8 @@ class TeamViewModel(application: Application): AndroidViewModel(application) {
             }
             teamsData.value = matchingTeams
         }
+
+        Log.d("tim", teamsData.value.toString())
     }
 
     fun getMembersByTeamId(teamId: Int) {
